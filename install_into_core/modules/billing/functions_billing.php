@@ -45,6 +45,8 @@ $odate=xrf_mysql_result($result,0,"date");
 $amt_due=xrf_mysql_result($result,0,"amt_due");
 $amt_paid=xrf_mysql_result($result,0,"amt_paid");
 
+/* We'll make this manual later
+
 if ($closed != 1 && $amt_due - $amt_paid == 0)
 {
 	$chkdate = strtotime($odate);
@@ -55,7 +57,7 @@ if ($closed != 1 && $amt_due - $amt_paid == 0)
 		$query="UPDATE b_orders SET closed = '1' WHERE id='$oid'";
 		mysqli_query($xrf_db, $query);
 	}
-}
+}*/
 
 if ($closed != 1)
 {
