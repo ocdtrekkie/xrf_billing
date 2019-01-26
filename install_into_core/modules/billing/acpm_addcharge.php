@@ -52,7 +52,7 @@ $qq++;
 }
 
 echo "</select></td></tr>
-<tr><td><b>Amount and Quantity:</b></td><td><input type=\"text\" name=\"camount\" size=\"10\"> USD x <input type=\"text\" name=\"cquantity\" size=\"5\"></td></tr>
+<tr><td><b>Amount and Quantity:</b></td><td><input type=\"text\" name=\"camount\" size=\"10\"> USD x <input type=\"text\" name=\"cquantity\" value=\"1\" size=\"5\"></td></tr>
 <tr><td><b>Waived?</b></td><td><select name=\"cstatus\"><option value=\"N\">No</option><option value=\"W\">Yes</option></select></td></tr>
 <tr><td></td><td><input type=\"submit\" value=\"Add\"></td></tr></table></form>";
 }
