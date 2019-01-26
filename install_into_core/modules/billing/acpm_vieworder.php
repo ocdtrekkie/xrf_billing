@@ -13,6 +13,7 @@ $notes=xrf_mysql_result($result,0,"notes");
 $amt_taxes=xrf_mysql_result($result,0,"amt_taxes");
 $amt_due=xrf_mysql_result($result,0,"amt_due");
 $amt_paid=xrf_mysql_result($result,0,"amt_paid");
+$closed=xrf_mysql_result($result,0,"closed");
 $lname=xrf_get_lname($xrf_db, $uid);
 $fname=xrf_get_fname($xrf_db, $uid);
 $alname=xrf_get_lname($xrf_db, $aid);
@@ -52,11 +53,12 @@ $taxes = xrfb_disp_cash($amt_taxes);
 $due = xrfb_disp_cash($amt_due);
 $paid = xrfb_disp_cash($amt_paid);
 $owed = xrfb_disp_cash($amt_due - $amt_paid);
+if ($closed == 0) { $modifylinks = " <a href=\"acp_module_panel.php?modfolder=billing&modpanel=addcharge&passid=$id\">[Add Charge]</a> <a href=\"acp_module_panel.php?modfolder=billing&modpanel=addpayment&passid=$id\">[Add Payment]</a> <a href=\"acp_module_panel.php?modfolder=billing&modpanel=closeorder&passid=$id\">[Close Order]</a>"; }
 echo "</table></p><p align=\"right\"><table><tr><td width=\"100\">Subtotal:</td><td align=\"right\" width=\"100\">$subtotal</td></tr>
 <tr><td>Taxes:</td><td align=\"right\">$taxes</td></tr></table></p>
 <p align=\"right\"><table><tr><td width=\"100\">Total:</td><td align=\"right\" width=\"100\">$due</td></tr>
 <tr><td>Paid:</td><td align=\"right\">$paid</td></tr>
 <tr><td><b>Unpaid:</b></td><td align=\"right\"><b>$owed</b></td></tr></table></p>
 
-<p align=\"left\"><b>Actions:</b> <font size=\"2\"><a href=\"acp_module_panel.php?modfolder=billing&modpanel=editorder&passid=$id\">[Edit Order]</a> <a href=\"acp_module_panel.php?modfolder=billing&modpanel=addcharge&passid=$id\">[Add Charge]</a> <a href=\"acp_module_panel.php?modfolder=billing&modpanel=addpayment&passid=$id\">[Add Payment]</a> [E-Mail Receipt] [Print Invoice]</font></p>";
+<p align=\"left\"><b>Actions:</b> <font size=\"2\"><a href=\"acp_module_panel.php?modfolder=billing&modpanel=editorder&passid=$id\">[Edit Order]</a>$modifylinks [E-Mail Receipt] [Print Invoice]</font></p>";
 ?>
