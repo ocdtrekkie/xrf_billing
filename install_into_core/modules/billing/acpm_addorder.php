@@ -14,9 +14,10 @@ $query="SELECT * FROM g_users WHERE email='$customer' || id='$customer'";
 $result=mysqli_query($xrf_db, $query);
 @$custid=xrf_mysql_result($result,0,"id");
 
-mysqli_query($xrf_db, "INSERT INTO b_orders (uid, date, aid, notes) VALUES('$custid', '$date', '$aid', '$notes')") or die(mysqli_error($xrf_db)); 
+mysqli_query($xrf_db, "INSERT INTO b_orders (uid, date, aid, notes) VALUES('$custid', '$date', '$aid', '$notes')") or die(mysqli_error($xrf_db));
+$oid = mysqli_insert_id($xrf_db);
 
-xrf_go_redir("acp_module_panel.php?modfolder=$modfolder&modpanel=orderlist&filter=open","Order created.",2);
+xrf_go_redir("acp_module_panel.php?modfolder=$modfolder&modpanel=vieworder&id=$oid","Order created.",2);
 }
 else
 {
