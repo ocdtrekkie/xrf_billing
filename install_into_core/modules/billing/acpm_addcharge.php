@@ -20,7 +20,9 @@ $result=mysqli_query($xrf_db, $query);
 mysqli_query($xrf_db, "INSERT INTO b_charges (uid, oid, iid, amt, quantity, status) VALUES('$ccustomerid', '$corderid', '$ccharge', '$camount', '$cquantity', '$cstatus')") or die(mysqli_error($xrf_db));
 xrfb_update_order($xrf_db, $corderid); 
 
-xrf_go_redir("acp_module_panel.php?modfolder=$modfolder&modpanel=addcharge&passid=$corderid","Charge added.",2);
+xrf_go_redir("acp_module_panel.php?modfolder=$modfolder&modpanel=vieworder&id=$corderid","Charge added.",6);
+
+echo "<p>Need to <a href=\"acp_module_panel.php?modfolder=$modfolder&modpanel=addcharge&passid=$corderid\">add another charge?</a></p>";
 }
 else
 {
