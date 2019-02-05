@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `b_categories` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `desc` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Categories for items that can be billed';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Categories for items that can be billed';
 
 CREATE TABLE IF NOT EXISTS `b_charges` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `b_charges` (
   `quantity` int(8) NOT NULL DEFAULT '1' COMMENT 'Quantity of items at cost listed',
   `status` varchar(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'W = Waived',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Individual charges on orders';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Individual charges on orders';
 
 CREATE TABLE IF NOT EXISTS `b_config` (
   `inv_line1` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `b_inventory` (
   `defamt` int(32) NOT NULL COMMENT 'Default amount of item',
   `catid` int(4) NOT NULL COMMENT 'Item category id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Items that can be billed';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Items that can be billed';
 
 CREATE TABLE IF NOT EXISTS `b_orders` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
@@ -46,4 +46,4 @@ CREATE TABLE IF NOT EXISTS `b_orders` (
   `amt_paid` int(32) NOT NULL DEFAULT '0',
   `closed` int(1) NOT NULL DEFAULT '0' COMMENT 'If 0, order is open.  If 1, order is closed.',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
